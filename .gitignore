@@ -1,0 +1,7 @@
+*.zip
+backups
+.*~
+.*/old
+DIV_MACROS/old
+*.bkp
+.*.bak
