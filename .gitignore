@@ -5,3 +5,5 @@ backups
 DIV_MACROS/old
 *.bkp
 .*.bak
+voron2.4_config_backup_*
+config-*
