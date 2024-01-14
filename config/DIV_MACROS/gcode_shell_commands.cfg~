@@ -79,31 +79,6 @@ gcode:
 	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/star_wars_sounds/you-were-the-chosen-one-star-wars.mp3"
 
 
-
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_gigawatts]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/1-point-21-gigawatts.mp3"
-
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_butthead]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/butthead.mp3"
-	
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_greatscott_two]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/greatscott2.mp3"
-	
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_greatscott_three]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/greatscott3.mp3"
-	
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_itworks]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/itworks.mp3"
-	
-[gcode_macro PLAY_SOUND_BACK_TO_THE_FUTURE_makelikeatree]
-gcode:
-	RUN_SHELL_COMMAND CMD=gcode_shell_ffplay PARAMS="/home/pi/sounds/short_sounds/back_to_the_future_sounds/makelikeatree.mp3"
-
 ### play sound commands in use
 [gcode_macro PLAY_SOUND_STARTUP]
 gcode:
@@ -119,8 +94,7 @@ gcode:
 
 [gcode_macro PLAY_SOUND_PRINT_START]
 gcode:
-	#PLAY_SOUND_ENERGIZE
-	PLAY_SOUND_BACK_TO_THE_FUTURE_itworks
+	PLAY_SOUND_ENERGIZE
 
 [gcode_macro PLAY_SOUND_PRINT_END]
 gcode:

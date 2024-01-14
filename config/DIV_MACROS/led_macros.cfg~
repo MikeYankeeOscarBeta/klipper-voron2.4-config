@@ -54,7 +54,7 @@ frame_rate:             24
 leds:
     neopixel:btt_mini12864
 layers:
-    static     0 0 top (0.6,0,0)
+    static     0 0 top (0.4,0,0)
 [gcode_macro LED_MACROS_SCREEN_RED_STATIC]
 gcode:
 	LED_MACROS_STOP_SCREEN
