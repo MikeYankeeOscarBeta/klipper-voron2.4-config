@@ -7,3 +7,9 @@ DIV_MACROS/old
 .*.bak
 voron2.4_config_backup_*
 config-*
+.*K-ShakeTune_results/
+/**/.cfg~ */
+/config/KAMP
+/config/timelapse.cfg
+/config/K-ShakeTune
+/config/mainsail.cfg
