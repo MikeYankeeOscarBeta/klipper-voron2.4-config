@@ -9,7 +9,9 @@ voron2.4_config_backup_*
 config-*
 .*K-ShakeTune_results/
 /**/.cfg~ */
+*.conf.*
 /config/KAMP
 /config/timelapse.cfg
 /config/K-ShakeTune
+/config/K-ShakeTune_results
 /config/mainsail.cfg
