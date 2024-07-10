@@ -1126,7 +1126,7 @@ speed: 400
 horizontal_move_z: 7
 retries: 3
 #retry_tolerance: 0.0075
-retry_tolerance: 0.015
+retry_tolerance: 0.025
 max_adjust: 10
 
 [bed_mesh]
@@ -1279,39 +1279,39 @@ gcode:
 # Current options:
 # - profile: Bed mesh profile to use (defaults to "default")
 ################################################################################
-# [gcode_macro LOAD_OR_CREATE_MESH]
-# gcode:
-#     {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
-#     LOAD_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
-#     CREATE_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
+[gcode_macro LOAD_OR_CREATE_MESH]
+gcode:
+    {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
+    LOAD_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
+    CREATE_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
 
-# [gcode_macro LOAD_PROFILE_MESH]
-# gcode:
-#     {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
-#     BED_MESH_PROFILE LOAD={ params.PROFILE|default(default) }
+[gcode_macro LOAD_PROFILE_MESH]
+gcode:
+    {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
+    BED_MESH_PROFILE LOAD={ params.PROFILE|default(default) }
 
-# [gcode_macro CREATE_PROFILE_MESH]
-# gcode:
-#     M117 Calib. Bed Mesh
-#     {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
-#     {% if printer.bed_mesh.profile_name != BED_MESH_PROFILE %}
-#         BED_MESH_CALIBRATE
-#         BED_MESH_PROFILE SAVE={ BED_MESH_PROFILE }
-#     {% endif %}
-#     LOAD_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
+[gcode_macro CREATE_PROFILE_MESH]
+gcode:
+    M117 Calib. Bed Mesh
+    {% set BED_MESH_PROFILE = params.PROFILE|default("default") %}
+    {% if printer.bed_mesh.profile_name != BED_MESH_PROFILE %}
+        BED_MESH_CALIBRATE
+        BED_MESH_PROFILE SAVE={ BED_MESH_PROFILE }
+    {% endif %}
+    LOAD_PROFILE_MESH PROFILE={ BED_MESH_PROFILE }
 
-# [gcode_macro DO_HOME_XYZ_QGL_AND_CALIBRATE_BED]
-# gcode:
-#     DO_QGL_IF_NOT_ALREADY
-#     CREATE_PROFILE_MESH
+[gcode_macro DO_HOME_XYZ_QGL_AND_CALIBRATE_BED]
+gcode:
+    DO_QGL_IF_NOT_ALREADY
+    CREATE_PROFILE_MESH
 
-# [gcode_macro DO_CALIBRATE_ALL_IF_NOT_ALREADY]
-# gcode:
-#     SAVE_GCODE_STATE NAME=STATE_CHECK_HOME_QGL_MESH_CALIB
-#     DO_HOME_XYZ_QGL_AND_CALIBRATE_BED
-#     G90
-#     G0 X175 Y175 Z30 F3600
-#     RESTORE_GCODE_STATE NAME=STATE_CHECK_HOME_QGL_MESH_CALIB
+[gcode_macro DO_CALIBRATE_ALL_IF_NOT_ALREADY]
+gcode:
+    SAVE_GCODE_STATE NAME=STATE_CHECK_HOME_QGL_MESH_CALIB
+    DO_HOME_XYZ_QGL_AND_CALIBRATE_BED
+    G90
+    G0 X175 Y175 Z30 F3600
+    RESTORE_GCODE_STATE NAME=STATE_CHECK_HOME_QGL_MESH_CALIB
     
 
 #   custom nozzle priming/purge
