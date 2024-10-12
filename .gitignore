@@ -15,4 +15,5 @@ config-*
 /config/timelapse.cfg
 /config/K-ShakeTune
 /config/K-ShakeTune_results
+/config/ShakeTune_results
 /config/mainsail.cfg
