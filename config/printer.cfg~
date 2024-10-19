@@ -111,13 +111,20 @@ replace_g0: False
 # # # ### Add toolhead can for ebb36 board
 # # # #[include toolhead_btt_ebbcan_G0B1_v1.2.cfg]
 
+### Add mcu_pi_pico_thermistors
+#[include mcu_pi_pico_thermistors.cfg]
+
+
 ### Add tapchanger config
 [include tapchanger_config/tool_detection.cfg]
 [include tapchanger_config/toolchanger.cfg]
 ## Add tapchanger tools / extruders / toolheads
 [include tapchanger_config/T0-rapido_2_uhf_plus.cfg]
 [include tapchanger_config/T1-rapido_2_uhf_plus.cfg]
-[include tapchanger_config/T2-revo.cfg]
+#[include tapchanger_config/T2-revo.cfg]
+[include tapchanger_config/T2-rapido_2_uhf_plus.cfg]
+[include tapchanger_config/T3-rapido_2_uhf_plus.cfg]
+
 
 ### Add tapchanger additional config and macros
 [include tapchanger_config/homing.cfg]
@@ -174,17 +181,18 @@ gcode:
 # Custom printer settings
 kinematics: corexy
 max_velocity: 500
-max_accel: 15000             #Max 4000
+max_accel: 50000             #Max 4000
 #max_z_velocity: 17          #Max 15 for 12V TMC Drivers, can increase for 24V
 #max_z_velocity: 30	     #old tmc2209 octopus
 #max_z_accel: 350	     #old tmc2209 octopus
 #max_z_velocity: 40	     #new tmc5160rgb octopus pro @0.8A
-max_z_velocity: 60	     #new tmc5160rgb octopus pro
+#max_z_velocity: 60	     #new tmc5160rgb octopus pro
+max_z_velocity: 80	     #new tmc5160rgb octopus pro
 max_z_accel: 350	     #new tmc5160rgb octopus pro
 #square_corner_velocity: 5.0
 square_corner_velocity: 30.0
 
-## Suggested defaults from https://docs.vorondesign.com/build/software/configuration.html
+## Voron default printer settings from https://docs.vorondesign.com/build/software/configuration.html
 #kinematics: corexy
 #max_velocity: 350
 #max_accel: 3000
@@ -192,7 +200,7 @@ square_corner_velocity: 30.0
 #max_z_accel: 350
 #square_corner_velocity: 10.0
 
-# LDO Defaults
+# LDO Default printer settings
 #kinematics: corexy
 #max_velocity: 300
 #max_accel: 3000             #Max 4000
@@ -592,7 +600,7 @@ pid_deriv_time:2.0
 min_temp: 0
 max_temp: 100
 #target_temp: 60
-target_temp: 40
+target_temp: 45
 #[controller_fan stepper_driver_fan]
 #pin: PF9
 #kick_start_time: 0.5
