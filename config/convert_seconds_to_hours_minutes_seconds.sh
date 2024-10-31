@@ -1,29 +1,16 @@
-#!/bin/bash
+#!/bin/bash -xe
 
-INPUT_SECONDS=$1
+INPUT=$1
 
-# convertsecs() {
-#  h=$(bc <<< "${1}/3600")
-#  m=$(bc <<< "(${1}%3600)/60")
-#  s=$(bc <<< "${1}%60")
-#  printf "%02d:%02d:%05.2f\n" $h $m $s
-# }
+INPUT_SECONDS=0
+## validate if integer or decimal
+re_int='^[0-9]+$'
+re_decimal='^[0-9]+\.[0-9]+$'
+if [[ $INPUT =~ $re_int ]] ; then
+    INPUT_SECONDS=$INPUT
+elif [[ $INPUT =~ $re_decimal ]]; then
+    INPUT_SECONDS=$(printf %.0f $INPUT)
+fi
 
-# convertsecs() {
-#  ((h=${1}/3600))
-#  ((m=(${1}%3600)/60))
-#  ((s=${1}%60))
-#  printf "%02d:%02d:%02d\n" $h $m $s
-# }
-#TIME1="36"
-#TIME2="1036"
-#TIME3="91925"
-
-#echo $(convertsecs $TIME1)
-#echo $(convertsecs $TIME2)
-#echo $(convertsecs $TIME3)
-
-#echo $(convertsecs $INPUT_SECONDS)
-
-#printf '%dh:%dm:%ds\n' $((secs/3600)) $((secs%3600/60)) $((secs%60))
+## print result 
 printf '%dh:%dm:%ds\n' $((INPUT_SECONDS/3600)) $((INPUT_SECONDS%3600/60)) $((INPUT_SECONDS%60))
