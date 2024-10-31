@@ -22,3 +22,6 @@ old_tapchanger_config/config/K-ShakeTune
 old_tapchanger_config/config/KAMP
 old_tapchanger_config/config/mainsail.cfg
 old_tapchanger_config/config/timelapse.cfg
+**/*.cfg~
+**/*.conf~
+config/.theme/
