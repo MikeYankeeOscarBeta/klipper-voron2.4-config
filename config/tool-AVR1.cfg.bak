@@ -1,7 +1,5 @@
 [mcu AVR1]
-#canbus_uuid: 818e9a5e9c31
-canbus_uuid: 555725a1570a
-#canbus_uuid: 81d885aba34f #ebb36 with dead max31865? it's the one with the desoldered connector
+canbus_uuid: 818e9a5e9c31 # ebb36 max with rapido 2 uhf - Tool#1
 
 [temperature_sensor canboard_AVR1]
 sensor_type: temperature_mcu
@@ -78,19 +76,16 @@ gcode_x_offset: 0.640
 gcode_y_offset: 0.000
 gcode_z_offset: 0.150
 
-params_park_x: 255.800
-params_park_y: 4.100
-params_park_z: 424.300
+params_park_x: 256.500
+params_park_y: 4.950
+params_park_z: 425.700
 
 params_close_y: 30.0
 params_safe_y: 120.0
-
 params_input_shaper_freq_x: 88.6
 params_input_shaper_type_x: 'mzv'
-params_input_shaper_damping_ratio_x: 0.055
 params_input_shaper_freq_y: 73.0
 params_input_shaper_type_y: 'mzv'
-params_input_shaper_damping_ratio_y: 0.071
 
 # Change tool number if needed
 [tool_probe AVR1]
